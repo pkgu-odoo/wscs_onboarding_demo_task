@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id='product_packaging_form_view_inherited' model='ir.ui.view'>
+        <field name='name'>product.packaging.form.view.inherited</field>
+        <field name='model'>product.packaging</field>
+        <field name='inherit_id' ref='product.product_packaging_form_view'/>
+        <field name='arch' type='xml'>
+            <xpath expr="//group[@name='group_product']" position='after'>
+            <group>
+                <field name='width'/>
+                <field name='length' />
+                <field name='height'/>
+                <field name='net_weight'/>
+                <field name='gross_weight'/>
+                <field name='volume'/>
+            </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='product_packaging_tree_view_inherited' model='ir.ui.view'>
+        <field name="name">product.packaging.tree.view.inherited</field>
+        <field name="model">product.packaging</field>
+        <!-- <field name="mode">primary</field> -->
+        <field name='inherit_id' ref='product.product_packaging_tree_view'/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_id']" position="after">
+                <field name='width'/>
+                <field name='length' />
+                <field name='height'/>
+                <field name='net_weight'/>
+                <field name='gross_weight'/>
+                <field name='volume'/>
+            </xpath> 
+        </field>
+    </record>
+</odoo>
