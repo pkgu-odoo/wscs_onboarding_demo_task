@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+        <!-- GFSI Scheme tree view -->
+        <record id="gfsi_scheme_tree_view" model="ir.ui.view">
+            <field name="name">gfsi.scheme.tree.view</field>
+            <field name="model">gfsi.scheme</field>
+            <field name="arch" type="xml">
+                <tree string="Certification" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action for GFSI Scheme -->
+        <record id='action_gfsci_scheme_configuration' model='ir.actions.act_window'>
+            <field name='name'>gfsi scheme</field>
+            <field name='res_model'>gfsi.scheme</field>
+            <field name='view_mode'>tree</field>
+        </record>
+
+        <!-- GFSI Scheme menu item -->
+    <menuitem name="GFSI Scheme" id="menu_gfsi_scheme" parent="menu_purchase_vendor_config"
+    action="action_gfsci_scheme_configuration"/>
+
+        <!-- GFSI Grade tree view -->
+        <record id="gfsi_gradezip_tree_view" model="ir.ui.view">
+            <field name="name">gfsi.gradezip.tree.view</field>
+            <field name="model">gfsi.gradezip</field>
+            <field name="arch" type="xml">
+                <tree string="Certification" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action for GFSI Grade -->
+        <record id='action_gfsi_grade_zip_configuration' model='ir.actions.act_window'>
+            <field name='name'>gfsi grade</field>
+            <field name='res_model'>gfsi.gradezip</field>
+            <field name='view_mode'>tree</field>
+        </record>
+
+        <!-- GFSI Grade Zip menu item -->
+        <menuitem name='GFSI Grade' id='menu_gfsi_grade_zip' parent='menu_purchase_vendor_config' 
+        action='action_gfsi_grade_zip_configuration'/>
+
+            <!-- GFSCI Certification tree view -->
+        <record id="gfsi_certification_tree_view" model="ir.ui.view">
+            <field name="name">gfsi.certification.tree.view</field>
+            <field name="model">gfsi.certification</field>
+            <field name="arch" type="xml">
+                <tree string="Certification" editable="bottom">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- action for GFSI Certification -->
+        <record id='action_certification_configuration' model='ir.actions.act_window'>
+            <field name='name'>gfsi certification</field>
+            <field name='res_model'>gfsi.certification</field>
+            <field name='view_mode'>tree</field>
+        </record>
+
+        <!-- GFSI Certification menu item -->
+        <menuitem name='GFSI Certification' id='menu_gfsi_certification' parent='menu_purchase_vendor_config' 
+        action='action_certification_configuration'/>
+
+</odoo>

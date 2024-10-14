@@ -19,6 +19,7 @@
             </field>
         </record>
 
+        <!-- Product Status Tree View -->
         <record id='view_product_tree' model='ir.ui.view'>
             <field name='name'>product.status.tree</field>
             <field name='model'>product.status</field>
@@ -32,6 +33,7 @@
             </field>
         </record>
 
+        <!-- Product Category Form View Extension -->
         <record id='view_product_form_inherit_category' model='ir.ui.view'>
             <field name='name'>product.form.inherit.category</field>
             <field name='model'>product.category</field>
@@ -43,6 +45,7 @@
             </field>
         </record>
 
+        <!-- Action Product Configuration -->
         <record id='action_status_configuration' model='ir.actions.act_window'>
             <field name='name'>Product Configuration</field>
             <field name='res_model'>product.status</field>

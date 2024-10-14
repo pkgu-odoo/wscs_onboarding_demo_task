@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Vendor Status Tree View -->
+    <record id="vendor_status_tree_view" model="ir.ui.view">
+        <field name="name">vendor.status.tree.view</field>
+        <field name="model">vendor.status</field>
+        <field name="arch" type="xml">
+            <tree string="Vendor Status" editable="bottom">
+                <field name="name"/>
+                <field name="hierarchy"/>
+                <field name="status_change_ids" widget='many2many_tags'/>
+                <field name="prevent_po_creation"/>
+                <field name="notify_user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Res Partner Form View Extension -->
+    <record id='view_vendor_form_inherit' model='ir.ui.view'>
+        <field name='name'>vendor.form.inherit</field>
+        <field name='model'>res.partner</field>
+        <field name='inherit_id' ref='base.view_partner_form'/>
+        <field name='arch' type='xml'>
+            <!-- Add status field in res.partner form view -->
+            <xpath expr="//field[@name='vat']" position='after'>
+                <field name='status_id'/>
+            </xpath>
+
+            <!-- Add product category page into res.partner form view -->
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Product Categories" name="product_categories">
+                    <group>
+                        <field name="product_category_ids" widget="many2many_tags"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <!-- Add product category page into res.partner form view -->
+            <xpath expr="//page[@name='product_categories']" position="after">
+                <page string="Compliance" name="vendor_compliance">
+                    <form string="Vendor Compliance">
+                        <group>
+                            <group>
+                                <field name="sedex_registered"/>
+                                <field name="ethical_audit"/>
+                                <field name="gfsi_cretification"/>
+                                <field name="fsc_certified"/>
+                                <field name="pefc_certified"/>
+                                <field name="other_certification_id"/>   
+                            </group>
+                            <group>
+                                <group>
+                                    <field name='sedx_no' invisible = "sedex_registered in ['no']" 
+                                    required="sedex_registered in ['yes']"/>
+                                    <field name="gfsi_scheme_id" invisible = "gfsi_cretification in ['no']" 
+                                    required="gfsi_cretification in ['yes']"/>
+                                </group>  
+                                <group>
+                                    <field name="gfsi_grade_id" invisible = "gfsi_cretification in ['no']" required="gfsi_cretification in ['yes']"/>
+                                </group>
+                            </group>
+                        </group>
+                    </form>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Extended Tree view of Product Supplierinfo(vendor pricelist) -->
+    <record id="view_supplierinfo_Tree_inherited" model="ir.ui.view">
+        <field name="name">product.supplierinfo.Tree.inherited</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='product_tmpl_id']" position="after">
+                <field name="qty_per_case"/>
+                <field name='cases_per_container'/>
+            </xpath>
+            <xpath expr="//field[@name='price']" position="after">
+                <field name="price_per_1000"/>
+                <field name="incoterm"/>
+            </xpath>
+        </field>
+    </record>
+    
+    <!-- Added Filter into the Search view of product supplierinfo(vendor pricelist) -->
+    <record id="view_supplierinfo_filter_inherited" model="ir.ui.view">
+        <field name="name">product.supplierinfo.filter.inherited</field>
+        <field name="model">product.supplierinfo</field>
+        <field name="inherit_id" ref="product.product_supplierinfo_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='active_products']" position="after">
+                <filter string="Active" name="active_filter" 
+                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Active')]"/>
+                <filter string="Pricing" name="pricing_filter" 
+                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Pricing')]"/>
+                <filter string="NPD" name="npd_filter" 
+                    domain="[('product_tmpl_id.product_status_id.name', '=', 'NPD')]"/>
+                <filter string="Dormant" name="dormant_filter" 
+                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Dormant')]"/>
+                <filter string="Archived" name="archived_filter" 
+                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Archived')]"/>
+            </xpath>
+        </field>
+    </record>
+    
+    
+
+    <!-- Action for Vendor Status -->
+    <record id='action_vendor_configuration' model='ir.actions.act_window'>
+        <field name='name'>vendor Status</field>
+        <field name='res_model'>vendor.status</field>
+        <field name='view_mode'>tree</field>
+    </record>
+
+    <!-- Vendor Status Menu Item -->
+    <menuitem id="menu_purchase_vendor_config" name="Vendors" parent="purchase.menu_purchase_config" sequence="50"/>
+    <menuitem name="Vendor Status" id="menu_vendor_status_config" action="action_vendor_configuration"
+        parent="menu_purchase_vendor_config"/>    
+
+</odoo>

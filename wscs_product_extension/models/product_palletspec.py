@@ -26,7 +26,7 @@ class ProductPalletSpec(models.Model):
     @api.depends('width', 'length', 'height')
     def _compute_volume(self):
         for rec in self:
-            rec.volume = (rec.width / 1000) * (rec.length / 1000) * (rec.height / 1000)
+            rec.volume = (rec.width) * (rec.length) * (rec.height)
 
     @api.depends('cases_per_layer', 'layers_per_pallet', 'qty')
     def _compute_units(self):

@@ -9,4 +9,3 @@ class ProductTemplate(models.Model):
     hierarchy = fields.Integer('Sequence')
     status_change_up_id = fields.Many2one('res.groups', string='Group Name - Status Change Up')
     status_change_down_id = fields.Many2one('res.groups', string='Group Name - Status Change Down')
-    
