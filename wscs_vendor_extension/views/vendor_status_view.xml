@@ -83,7 +83,7 @@
             </xpath>
         </field>
     </record>
-    
+
     <!-- Added Filter into the Search view of product supplierinfo(vendor pricelist) -->
     <record id="view_supplierinfo_filter_inherited" model="ir.ui.view">
         <field name="name">product.supplierinfo.filter.inherited</field>
@@ -104,8 +104,6 @@
             </xpath>
         </field>
     </record>
-    
-    
 
     <!-- Action for Vendor Status -->
     <record id='action_vendor_configuration' model='ir.actions.act_window'>
