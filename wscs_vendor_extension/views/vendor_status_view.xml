@@ -7,8 +7,9 @@
         <field name="model">vendor.status</field>
         <field name="arch" type="xml">
             <tree string="Vendor Status" editable="bottom">
+                <field name="sequence" widget="handle"/>
                 <field name="name"/>
-                <field name="hierarchy"/>
+                <field name="wscs_vendor_hierarchy"/>
                 <field name="status_change_ids" widget='many2many_tags'/>
                 <field name="prevent_po_creation"/>
                 <field name="notify_user_id"/>
@@ -91,15 +92,15 @@
         <field name="inherit_id" ref="product.product_supplierinfo_search_view"/>
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='active_products']" position="after">
-                <filter string="Active" name="active_filter" 
+                <filter string="Active" name="active_filter"
                     domain="[('product_tmpl_id.product_status_id.name', '=', 'Active')]"/>
-                <filter string="Pricing" name="pricing_filter" 
+                <filter string="Pricing" name="pricing_filter"
                     domain="[('product_tmpl_id.product_status_id.name', '=', 'Pricing')]"/>
-                <filter string="NPD" name="npd_filter" 
+                <filter string="NPD" name="npd_filter"
                     domain="[('product_tmpl_id.product_status_id.name', '=', 'NPD')]"/>
-                <filter string="Dormant" name="dormant_filter" 
+                <filter string="Dormant" name="dormant_filter"
                     domain="[('product_tmpl_id.product_status_id.name', '=', 'Dormant')]"/>
-                <filter string="Archived" name="archived_filter" 
+                <filter string="Archived" name="archived_filter"
                     domain="[('product_tmpl_id.product_status_id.name', '=', 'Archived')]"/>
             </xpath>
         </field>

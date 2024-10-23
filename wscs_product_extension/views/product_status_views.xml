@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo> 
         <!-- Product Template Form View Extension -->
         <record id='view_product_form_inherit_status' model='ir.ui.view'>
@@ -25,8 +26,9 @@
             <field name='model'>product.status</field>
             <field name='arch' type="xml">
                 <tree string='Product Status' editable='bottom'>
+                    <field name='sequence' widget='handle'/>
                     <field name='name'/>
-                    <field name='hierarchy'/>
+                    <field name='wscs_hierarchy'/>
                     <field name='status_change_up_id'/>
                     <field name='status_change_down_id'/>
                 </tree>

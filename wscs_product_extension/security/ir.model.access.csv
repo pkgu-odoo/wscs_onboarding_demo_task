@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_product_status,access_product_status,model_product_status,base.group_user,1,1,1,1
-access_product_pallet,access_product_pallet,model_product_palletspec,base.group_user,1,1,1,1
+access_product_status,access_product_status,model_product_status,stock.group_stock_manager,1,1,1,1
+access_product_packing,access_product_packing,model_product_status,stock.group_stock_user,1,0,0,0
+access_product_packing,access_product_packing,model_product_palletspec,stock.group_stock_manager,1,1,1,1
+access_product_pallet,access_product_pallet,model_product_palletspec,stock.group_stock_user,1,1,0,0

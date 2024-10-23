@@ -2,7 +2,10 @@
     'name': 'WSCS Product Extension',
     'version': '1.0',
     'summary': 'Extension for product forms',
-    'depends': ['product', 'stock'],
+    'depends': [
+        'product',
+        'stock_delivery'
+    ],
     'author': 'WSCS',
     'category': 'Inventory',
     'data': [

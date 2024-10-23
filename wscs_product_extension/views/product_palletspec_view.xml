@@ -13,16 +13,16 @@
                         <field name='product_template_id'/>
                         <field name='cases_per_layer'/>
                         <field name='layers_per_pallet'/>
-                        <field name='units'/>
+                        <field name='cases_per_units'/>
                     </group>
                     <group>
-                        <field name='qty'/>
+                        <field name='wscs_qty'/>
                         <field name='product_uom_id'/>
-                        <field name='width'/>
-                        <field name='length'/>
-                        <field name='height'/>
-                        <field name='volume'/>
-                        <field name='weight'/>
+                        <field name='cases_per_width'/>
+                        <field name='cases_per_length'/>
+                        <field name='cases_per_height'/>
+                        <field name='cases_per_volume'/>
+                        <field name='cases_per_weight'/>
                         <field name='company_id'/>
                     </group>
                 </sheet>
@@ -40,14 +40,14 @@
                 <field name="name" />
                 <field name="cases_per_layer"/>
                 <field name="layers_per_pallet"/>
-                <field name="units"/>
-                <field name="qty"/>
+                <field name="cases_per_units"/>
+                <field name="wscs_qty"/>
                 <field name="product_uom_id"/>
-                <field name="width"/>
-                <field name="length"/>
-                <field name="height"/>
-                <field name="volume"/>
-                <field name="weight"/>
+                <field name="cases_per_width"/>
+                <field name="cases_per_length"/>
+                <field name="cases_per_height"/>
+                <field name="cases_per_volume"/>
+                <field name="cases_per_weight"/>
                 <field name="company_id"/>
             </tree>
         </field>
@@ -65,6 +65,10 @@
                             <tree editable="bottom" nolabel='1'/>
                         </field>
                 </group>
+            </xpath>
+            <!-- make hs_code field invisible in inventory form pagw -->
+            <xpath expr="//field[@name='hs_code']" position="attributes">
+                <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
