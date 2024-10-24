@@ -15,8 +15,14 @@
                         <field name='layers_per_pallet'/>
                         <field name='cases_per_units'/>
                     </group>
-                    <group>
+                    <group class ="oe_inline">
                         <field name='wscs_qty'/>
+                        <div name="wscs_qty">
+                            <span class='oe_inline'>per</span>
+                            <field name="product_uom_id"/>
+                        </div>
+                    </group>
+                    <group>
                         <field name='product_uom_id'/>
                         <field name='cases_per_width'/>
                         <field name='cases_per_length'/>
@@ -67,9 +73,9 @@
                 </group>
             </xpath>
             <!-- make hs_code field invisible in inventory form pagw -->
-            <xpath expr="//field[@name='hs_code']" position="attributes">
+            <field name="hs_code" position="attributes">
                 <attribute name="invisible">1</attribute>
-            </xpath>
+            </field>
         </field>
     </record>
 

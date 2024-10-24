@@ -24,9 +24,9 @@
         <field name='inherit_id' ref='base.view_partner_form'/>
         <field name='arch' type='xml'>
             <!-- Add status field in res.partner form view -->
-            <xpath expr="//field[@name='vat']" position='after'>
+            <field name='vat' position='after'>
                 <field name='status_id'/>
-            </xpath>
+            </field>
 
             <!-- Add product category page into res.partner form view -->
             <xpath expr="//page[@name='internal_notes']" position="after">
@@ -74,14 +74,14 @@
         <field name="model">product.supplierinfo</field>
         <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='product_tmpl_id']" position="after">
+            <field name='product_tmpl_id' position="after">
                 <field name="qty_per_case"/>
                 <field name='cases_per_container'/>
-            </xpath>
-            <xpath expr="//field[@name='price']" position="after">
+            </field>
+            <field name='price' position="after">
                 <field name="price_per_1000"/>
                 <field name="incoterm"/>
-            </xpath>
+            </field>
         </field>
     </record>
 
