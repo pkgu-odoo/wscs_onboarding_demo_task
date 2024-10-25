@@ -93,9 +93,9 @@
         <field name="arch" type="xml">
             <xpath expr="//filter[@name='active_products']" position="after">
                 <filter string="Active" name="active_filter"
-                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Active')]"/>
+                    domain="[('product_tmpl_id.wscs_status_active', '=', 'True')]"/>
                 <filter string="Pricing" name="pricing_filter"
-                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Pricing')]"/>
+                    domain="[('product_tmpl_id.produ.ct_status_id.name', '=', 'Pricing')]"/>
                 <filter string="NPD" name="npd_filter"
                     domain="[('product_tmpl_id.product_status_id.name', '=', 'NPD')]"/>
                 <filter string="Dormant" name="dormant_filter"

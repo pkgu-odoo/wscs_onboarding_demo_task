@@ -15,6 +15,12 @@ class ProductTemplate(models.Model):
     product_palletspec_ids = fields.One2many('product.palletspec', 'product_template_id')
     landed_cost = fields.Float(string='Landed Cost')
     margin = fields.Float(string='Margin')
+    
+    wscs_status_active = fields.Boolean(string='Active', default=True)
+    wscs_status_pricing = fields.Boolean(string='Pricing')
+    wscs_status_dormant = fields.Boolean(string='Dormant')
+    wscs_status_npd = fields.Boolean(string='NPD')
+    wscs_status_archived = fields.Boolean(string='Archived')
 
     def write(self, vals):
         current_hierarchy = self.product_status_id.wscs_hierarchy if self.product_status_id else 0

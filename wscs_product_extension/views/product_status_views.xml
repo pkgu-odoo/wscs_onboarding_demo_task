@@ -13,6 +13,11 @@
                 <field name='uom_po_id' position='after'>
                     <field name='product_status_id'/>
                     <field name='hs_code'/>
+                    <field name='wscs_status_active'/>
+                    <field name='wscs_status_pricing'/>
+                    <field name='wscs_status_dormant'/>
+                    <field name='wscs_status_npd'/>
+                    <field name='wscs_status_archived'/>
                 </field>
                 <field name='default_code' position='after'>
                     <field name='customer_reference'/>
