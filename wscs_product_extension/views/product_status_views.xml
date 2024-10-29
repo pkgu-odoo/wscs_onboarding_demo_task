@@ -8,11 +8,11 @@
             <field name='arch' type='xml'>
                 <field name='default_code' position='before'>
                     <field name='landed_cost' widget='monetary'/>
-                    <field name='margin' widget='percentage'/>
+                    <field name='wscs_margin' widget='percentage'/>
                 </field>
                 <field name='uom_po_id' position='after'>
-                    <field name='product_status_id'/>
                     <field name='hs_code'/>
+                    <field name='product_status_id'/>
                     <field name='wscs_status_active'/>
                     <field name='wscs_status_pricing'/>
                     <field name='wscs_status_dormant'/>
@@ -33,7 +33,6 @@
                 <tree string='Product Status' editable='bottom'>
                     <field name='sequence' widget='handle'/>
                     <field name='name'/>
-                    <field name='wscs_hierarchy'/>
                     <field name='status_change_up_id'/>
                     <field name='status_change_down_id'/>
                 </tree>

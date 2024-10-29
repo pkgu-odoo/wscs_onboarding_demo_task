@@ -9,10 +9,10 @@
             <tree string="Vendor Status" editable="bottom">
                 <field name="sequence" widget="handle"/>
                 <field name="name"/>
-                <field name="wscs_vendor_hierarchy"/>
                 <field name="status_change_ids" widget='many2many_tags'/>
                 <field name="prevent_po_creation"/>
                 <field name="notify_user_id"/>
+                <field name='is_active'/>
             </tree>
         </field>
     </record>
@@ -25,7 +25,19 @@
         <field name='arch' type='xml'>
             <!-- Add status field in res.partner form view -->
             <field name='vat' position='after'>
-                <field name='status_id'/>
+                <group>
+                    <field name='status_id'/>
+                </group>
+                <group>
+                    <field name='status_active'/>
+                    <field name='status_Prospective'/>
+                    <field name='status_evalution'/>
+                    <field name='status_rejected'/>
+                    <field name='status_grade2'/>
+                    <field name='status_grade1'/>
+                    <field name='status_onhold'/>
+                    <field name='status_disqualified'/>
+                </group>
             </field>
 
             <!-- Add product category page into res.partner form view -->
@@ -95,13 +107,13 @@
                 <filter string="Active" name="active_filter"
                     domain="[('product_tmpl_id.wscs_status_active', '=', 'True')]"/>
                 <filter string="Pricing" name="pricing_filter"
-                    domain="[('product_tmpl_id.produ.ct_status_id.name', '=', 'Pricing')]"/>
+                    domain="[('product_tmpl_id.wscs_status_pricing', '=', 'True')]"/>
                 <filter string="NPD" name="npd_filter"
-                    domain="[('product_tmpl_id.product_status_id.name', '=', 'NPD')]"/>
+                    domain="[('product_tmpl_id.wscs_status_npd', '=', 'True')]"/>
                 <filter string="Dormant" name="dormant_filter"
-                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Dormant')]"/>
+                    domain="[('product_tmpl_id.wscs_status_dormant', '=', 'True')]"/>
                 <filter string="Archived" name="archived_filter"
-                    domain="[('product_tmpl_id.product_status_id.name', '=', 'Archived')]"/>
+                    domain="[('product_tmpl_id.wscs_status_archived', '=', 'True')]"/>
             </xpath>
         </field>
     </record>

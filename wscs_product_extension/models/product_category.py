@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-from odoo import fields, models, _
+from odoo import fields, models
 
 
 class ProductCategory(models.Model):
     _inherit = 'product.category'
 
-    category_description = fields.Char(_("Category Description"))
+    category_description = fields.Char("Category Description")

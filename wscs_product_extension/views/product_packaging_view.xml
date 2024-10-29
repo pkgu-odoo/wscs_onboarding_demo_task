@@ -34,7 +34,6 @@
                 <field name="wscs_gross_weight"/>
                 <field name="wscs_volume"/>
             </field>
-            
         </field>
     </record>
 </odoo>
